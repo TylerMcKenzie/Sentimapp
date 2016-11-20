@@ -4,5 +4,5 @@ angular.module('controllers', [])
   '$location',
   function($scope, $location) {
 
-  }
-])
+  }]
+);

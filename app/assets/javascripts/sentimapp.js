@@ -12,7 +12,10 @@ angular.module('sentimapp' ,['ui.router', 'controllers'])
       controller: 'MainCtrl'
     });
 
+    // Make sure users stay on the Angular portion of app
     $urlRouterProvider.otherwise('/');
+
+    // Set path to regular formatting
     $locationProvider.html5Mode(true);
   }
 ])
