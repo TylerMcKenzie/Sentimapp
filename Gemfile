@@ -17,13 +17,32 @@ gem 'jbuilder', '~> 2.5'
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
-gem 'responders'
+
+# Template for site
 gem 'foundation-rails'
-gem 'httparty'
+
+# Handle templates for Angular
 gem 'angular-rails-templates'
+
+# Handle http requests for Apis
+gem 'httparty'
+
+# Manage JSON for app
+gem 'responders'
+
 gem 'rack-cors'
+
+# Handle file drag and drop and such
 gem 'dropzonejs-rails'
+
+# Use twitter api -- not sure if going to use but its there right?
 gem 'twitter'
+
+# User authentication
+gem 'devise'
+
+# Handle csrf tokens for protect from forgery
+gem 'angular_rails_csrf'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
