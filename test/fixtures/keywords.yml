@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  sample_id: 1
+  text: MyString
+  sentiment_type: MyString
+  sentiment_score: 1.5
+  gender: MyString
+
+two:
+  sample_id: 1
+  text: MyString
+  sentiment_type: MyString
+  sentiment_score: 1.5
+  gender: MyString
