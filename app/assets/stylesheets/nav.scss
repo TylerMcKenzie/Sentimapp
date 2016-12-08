@@ -1,0 +1,11 @@
+.nav {
+  @include flex;
+  justify-content: flex-end;
+  ul {
+    list-style: none;
+    li {
+      display: inline-block;
+      margin: 0 2rem;
+    }
+  }
+}

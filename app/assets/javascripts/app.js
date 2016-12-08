@@ -1,5 +1,13 @@
-angular.module('sentimapp' ,['ui.router', 'templates', 'controllers', 'Devise'])
-.config([
+var app = angular.module('sentimapp' ,['ui.router', 'templates', 'Devise']);
+
+/* Fix header issues with http */
+app.run(['$http', function($http) {
+  $http.defaults.headers.common['Accept'] = 'application/json';
+  $http.defaults.headers.common['Content-Type'] = 'application/json';
+}]);
+
+/* Routing for app */
+app.config([
   '$stateProvider',
   '$urlRouterProvider',
   function($stateProvider, $urlRouterProvider) {
@@ -10,7 +18,8 @@ angular.module('sentimapp' ,['ui.router', 'templates', 'controllers', 'Devise'])
     .state('home', {
       url: '/',
       templateUrl:'home/_home.html',
-      controller: 'HomeCtrl'
+      controller: 'HomeCtrl',
+      controllerAs: '$ctrl'
     })
     .state('login', {
       url: '/login',
@@ -40,4 +49,4 @@ angular.module('sentimapp' ,['ui.router', 'templates', 'controllers', 'Devise'])
     });
 
   }
-])
+]);

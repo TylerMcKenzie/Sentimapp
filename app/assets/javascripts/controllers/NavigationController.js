@@ -1,5 +1,4 @@
-angular.module('controllers')
-.controller('NavCtrl', [
+app.controller('NavCtrl', [
   '$scope',
   'Auth',
   function($scope, Auth) {
