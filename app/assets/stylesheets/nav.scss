@@ -1,6 +1,6 @@
 .nav {
-  @include flex;
-  justify-content: flex-end;
+  position: fixed;
+
   ul {
     list-style: none;
     li {

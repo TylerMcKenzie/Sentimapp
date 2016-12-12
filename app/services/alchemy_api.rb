@@ -13,6 +13,8 @@ class AlchemyApi
 
     if @response["statusInfo"] == "content-is-empty"
       return false
+    elsif @response["statusInfo"] == "invalid-api-key"
+      p "++++++ FUCKING INVALID APIKEY DOUCHEBAG ++++++"
     else
       @sample = Sample.new( content: @response['text'], name: @sample_name , user_id: user.id)
       create_keywords
@@ -25,6 +27,8 @@ class AlchemyApi
     call_api
     if @response["statusInfo"] == "content-is-empty"
       return false
+    elsif @response["statusInfo"] == "invalid-api-key"
+      p "++++++ FUCKING INVALID APIKEY DOUCHEBAG ++++++"
     else
       @sample = Sample.new( content: @response['text'], name: @sample_name )
       create_keywords

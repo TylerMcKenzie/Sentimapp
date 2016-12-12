@@ -1,6 +1,7 @@
 function SentibotCtrl($scope, $element, $attrs) {
   var ctrl = this;
 
+
 };
 
 app.component('sentibot', {

@@ -1,7 +1,11 @@
-<div class="form-cont">
-  <form class="form small-4" ng-submit="$ctrl.call(form)">
-    <input type="text" ng-model="form.name"/>
-    <textarea type="textarea" ng-model="form.text"/>
-    <input type="submit" value="CALL"/>
-  </form>
+<div class="button-list">
+  <ul>
+    <li><button ng-click="$ctrl.scrollUp()">Up</button></li>
+    <li><button ng-click="$ctrl.scrollDown()">Down</button></li>
+  </ul>
 </div>
+
+<!-- I made it a component so it is easier to edit the svg in its own file -->
+<sentibot></sentibot>
+
+<control-panel js-data="formPanel"><control-panel>
