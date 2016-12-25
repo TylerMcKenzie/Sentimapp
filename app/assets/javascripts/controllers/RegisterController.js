@@ -1,5 +1,4 @@
-angular.module('controllers')
-.controller('RegisterCtrl', [
+app.controller('RegisterCtrl', [
   '$scope',
   'Auth',
   '$state',

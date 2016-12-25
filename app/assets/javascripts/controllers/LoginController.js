@@ -1,5 +1,4 @@
-angular.module('controllers')
-.controller('LoginCtrl', [
+app.controller('LoginCtrl', [
   '$scope',
   'Auth',
   '$state',

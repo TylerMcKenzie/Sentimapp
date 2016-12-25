@@ -1,9 +1,9 @@
 <div class="nav" ng-controller="NavCtrl">
   <ul>
     <li><a ng-href="#/">Home</a></li>
-    <li ng-hide="signedIn()"><a ng-href="#/login">Login</a></li>
-    <li ng-hide="signedIn()"><a ng-href="#/signup">SignUp</a></li>
-    <li ng-show="signedIn()"><a ng-href="#/">{{user.email}}</a></li>
+    <li ng-hide="signedIn()"><a ng-href="#!/login">Login</a></li>
+    <li ng-hide="signedIn()"><a ng-href="#!/signup">SignUp</a></li>
+    <li ng-show="signedIn()"><a ng-href="#!/">{{user.email}}</a></li>
     <li ng-show="signedIn()"><a ng-click="logout()">Logout</a></li>
   </ul>
 </div>

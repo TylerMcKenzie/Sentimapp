@@ -44,6 +44,9 @@ gem 'devise'
 # Handle csrf tokens for protect from forgery
 gem 'angular_rails_csrf'
 
+# Guess for gender and such /might be removed? not sure
+gem 'guess'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

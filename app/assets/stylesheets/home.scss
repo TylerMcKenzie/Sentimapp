@@ -1,0 +1,63 @@
+.control-panel {
+  background-color: rgba(212, 0, 0, 255);
+  margin-top: -10px;
+
+  .form-cont {
+    @include flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+
+    form {
+      @include flex;
+      align-items: center;
+      flex-direction: column;
+      justify-content: center;
+      background-color: lightgrey;
+      border: 10px solid grey;
+      border-radius: 10px;
+      text-align: center;
+      height: 70%;
+
+      input, textarea {
+        max-width: 80%;
+      }
+
+      textarea {
+        resize: none;
+        height: 70%;
+      }
+
+      input[type='submit'] {
+        height: 50px;
+        width: 80%;
+      }
+    }
+  }
+
+}
+
+.button-list {
+  position: fixed;
+  text-align: right;
+  width: 100%;
+
+  ul {
+    list-style: none;
+
+    li {
+      display: inline-block;
+      margin: 0 15px;
+    }
+  }
+}
+
+svg {
+  width: 100%;
+  height: auto;
+}
+
+.sample-cont {
+  background-color: rgba(212, 0, 0, 255);
+  margin-top: -20px;
+}

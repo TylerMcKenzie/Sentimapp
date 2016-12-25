@@ -1,0 +1,11 @@
+.nav {
+  position: fixed;
+
+  ul {
+    list-style: none;
+    li {
+      display: inline-block;
+      margin: 0 2rem;
+    }
+  }
+}
