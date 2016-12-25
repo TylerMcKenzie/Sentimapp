@@ -1,4 +1,4 @@
-var app = angular.module('sentimapp' ,['ui.router', 'templates', 'Devise']);
+var app = angular.module('sentimapp' ,['ui.router', 'templates', 'Devise', 'ngSanitize']);
 
 /* Fix header issues with http */
 app.run(['$http', function($http) {

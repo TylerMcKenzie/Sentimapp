@@ -2,8 +2,7 @@ app.controller('HomeCtrl', [
   '$scope',
   '$http',
   'Auth',
-  'highlighter',
-  function($scope, $http, Auth, highlighter) {
+  function($scope, $http) {
     var ctrl = this;
     var bodyHtml = $('body');
 
@@ -17,29 +16,27 @@ app.controller('HomeCtrl', [
     };
 
     ctrl.scrollUp = function() {
-      bodyHtml.animate({
-        scrollTop: 0
-      }, 1000);
+      if ( bodyHtml.scrollTop() == $("[js-data='formPanel']").offset().top ) {
+        bodyHtml.animate({
+          scrollTop: 0
+        }, 1000);
+      } else if ( bodyHtml.scrollTop() == $("[js-data='sample-cont']").offset().top ) {
+        bodyHtml.animate({
+          scrollTop: $("[js-data='formPanel']").offset().top
+        }, 1000);
+      }
     };
 
     ctrl.scrollDown = function() {
-      bodyHtml.animate({
-        scrollTop: $("[js-data='formPanel']").offset().top
-      }, 1000);
-    };
-
-    ctrl.call = function(form) {
-      var req = {
-        method: 'GET',
-        url: '/call',
-        params: form,
-      };
-
-      // $scope.text = highlighter.highlight("this is a good post", ['good', 'post']);
-      // $http(req).then(function(response) {
-      //   var text = highlighter.highlight(response.data.content, response.data.keywords);
-      //   $scope.text = text;
-      // });
+      if ( bodyHtml.scrollTop() == $("[js-data='formPanel']").offset().top ) {
+        bodyHtml.animate({
+          scrollTop: $("[js-data='sample-cont']").offset().top
+        }, 1000);
+      } else {
+        bodyHtml.animate({
+          scrollTop: $("[js-data='formPanel']").offset().top
+        }, 1000);
+      }
     };
 
   }]

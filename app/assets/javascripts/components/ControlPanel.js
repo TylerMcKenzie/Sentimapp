@@ -6,14 +6,21 @@ function ControlPanelCtrl($scope, $element, $attrs, ApiCoordinator) {
     panelForm.css({height: $(window).height()});
   };
 
-  ctrl.submit = function(form) {
-    var api = ApiCoordinator.call(form);
-  }
+  ctrl.setSample = function(sample) {
+    ctrl.sample = angular.copy(sample);
+  };
 
+  ctrl.submit = function(form) {
+    // ApiCoordinator.call(form).then(function(sample){
+    //   ctrl.setSample(sample);
+    // });
+    ctrl.sample = {content: "This is a good post", keywords : [{text: 'good post'}]};
+  };
 };
 
 app.component('controlPanel', {
   templateUrl: 'home/_control-panel.html',
   controller: ControlPanelCtrl,
-  bindings: {}
+  bindings: {
+  }
 });

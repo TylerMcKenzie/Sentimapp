@@ -10,7 +10,7 @@ class AlchemyController < ApplicationController
       sample = api.format_sample_empty
     end
 
-    respond_with JSON.parse(sample.to_json(include: :keywords))
+    respond_with JSON.parse(sample.to_json(include: :keywords)), location: ''
   end
 
 end

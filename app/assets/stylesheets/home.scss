@@ -4,9 +4,35 @@
 
   .form-cont {
     @include flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
     height: 100%;
+
+    form {
+      @include flex;
+      align-items: center;
+      flex-direction: column;
+      justify-content: center;
+      background-color: lightgrey;
+      border: 10px solid grey;
+      border-radius: 10px;
+      text-align: center;
+      height: 70%;
+
+      input, textarea {
+        max-width: 80%;
+      }
+
+      textarea {
+        resize: none;
+        height: 70%;
+      }
+
+      input[type='submit'] {
+        height: 50px;
+        width: 80%;
+      }
+    }
   }
 
 }
@@ -29,4 +55,9 @@
 svg {
   width: 100%;
   height: auto;
+}
+
+.sample-cont {
+  background-color: rgba(212, 0, 0, 255);
+  margin-top: -20px;
 }

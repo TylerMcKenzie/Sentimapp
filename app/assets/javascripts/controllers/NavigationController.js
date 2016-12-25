@@ -4,11 +4,11 @@ app.controller('NavCtrl', [
   function($scope, Auth) {
     $scope.signedIn = Auth.isAuthenticated;
 
-    // if($scope.signedIn()) {
+    if($scope.signedIn()) {
       Auth.currentUser().then(function(user) {
         $scope.user = user;
       });
-    // }
+    }
 
     $scope.logout = Auth.logout;
 
