@@ -3,7 +3,7 @@
 //= require angular-ui-router
 //= require jquery
 //= require angular-sanitize
-//= require angulardevise
+//= require AngularDevise
 //= require foundation
 //= require_tree .
 
