@@ -15,6 +15,7 @@ function ControlPanelCtrl($scope, $element, $attrs, ApiCoordinator) {
     //   ctrl.setSample(sample);
     // });
     ctrl.sample = {content: "This is a good post", keywords : [{text: 'good post'}]};
+    ctrl.runAnim.showSample();
   };
 };
 

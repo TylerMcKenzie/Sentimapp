@@ -1,12 +1,13 @@
-function SampleCtrl($scope, $sanitize, $element, $attrs, highlighter) {
+function SampleCtrl($scope, $sanitize, $element, $attrs, highlighter, Scroller) {
   var ctrl = this;
   ctrl.$onInit = function() {
     var sampleCont = $(".sample-cont");
+    var sampleTop = sampleCont.offset().top;
     sampleCont.css({height: $(window).height()});
 
     ctrl.animate = {
       showSample: function() {
-
+        Scroller.scrollTo(sampleTop, 1000);
       }
     };
   };

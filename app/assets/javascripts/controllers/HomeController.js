@@ -8,7 +8,7 @@ app.controller('HomeCtrl', [
 
     ctrl.$onInit = function() {
       // disable scroll
-      $(document).on('scroll touchmove mousewheel', function(e) {
+      bodyHtml.on('scroll touchmove mousewheel', function(e) {
         e.preventDefault()
         e.stopPropagation();
         return false

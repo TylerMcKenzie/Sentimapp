@@ -3,8 +3,9 @@
 //= require angular-ui-router
 //= require jquery
 //= require angular-sanitize
-//= require angulardevise
+//= require AngularDevise
 //= require foundation
+//= require greensock/TweenMax
 //= require_tree .
 
 $(function(){ $(document).foundation(); });

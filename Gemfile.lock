@@ -79,6 +79,7 @@ GEM
       sprockets-es6 (>= 0.9.0)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
+    greensock-rails (1.19.0.0)
     guess (0.1.0)
     http (1.0.4)
       addressable (~> 2.3)
@@ -221,6 +222,7 @@ DEPENDENCIES
   devise
   dropzonejs-rails
   foundation-rails
+  greensock-rails
   guess
   httparty
   jbuilder (~> 2.5)
@@ -239,4 +241,4 @@ DEPENDENCIES
   web-console
 
 BUNDLED WITH
-   1.13.2
+   1.13.6
