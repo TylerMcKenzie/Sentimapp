@@ -1,6 +1,7 @@
-function SentibotCtrl($scope, $element, $attrs) {
+function SentibotCtrl($scope, $element, $attrs, Tutorial) {
   var ctrl = this;
 
+  Tutorial.init("svg3384");
 
 };
 

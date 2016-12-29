@@ -5,7 +5,12 @@
 //= require angular-sanitize
 //= require AngularDevise
 //= require foundation
-//= require greensock/TweenMax
-//= require_tree .
+//= require greensock/TweenLite
+//= require app.js
+//= require_tree ./factories
+//= require_tree ./components
+//= require_tree ./templates
+//= require_tree ./filters
+//= require_tree ./controllers
 
 $(function(){ $(document).foundation(); });

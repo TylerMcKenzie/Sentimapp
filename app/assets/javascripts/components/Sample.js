@@ -10,6 +10,8 @@ function SampleCtrl($scope, $sanitize, $element, $attrs, highlighter, Scroller) 
         Scroller.scrollTo(sampleTop, 1000);
       }
     };
+
+
   };
 
   ctrl.cleanHighlight = function(content, keys) {
