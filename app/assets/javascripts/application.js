@@ -5,6 +5,7 @@
 //= require angular-sanitize
 //= require AngularDevise
 //= require foundation
+//= require greensock/TweenMax
 //= require_tree .
 
 $(function(){ $(document).foundation(); });
