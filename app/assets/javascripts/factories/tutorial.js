@@ -18,12 +18,20 @@ app.factory("Tutorial", [
       var eyes = svg.find('#eyes');
       var eyeL = svg.find('#eye_glow');
 
-      var tl = new TimelineLite();
-      console.log(tl)
+      this.t2 = new TimelineLite();
+      this.tl = new TimelineLite();
+      
+      this.t2.fromTo(jaw, 1, {y: 90}, {y: 60});
+
+      this.tl.fromTo(jaw, 1, {y: 60}, {y: 90});
+      this.tl.add("scene2");
+      this.tl.add(this.t2, 'scene2');
+      this.tl.progress(1);
 
     };
 
     Tutorial.prototype.playTutorial = function() {
+      this.tl.play(0);
     };
 
     Tutorial.prototype.playScene = function(scene) {
