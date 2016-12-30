@@ -14,3 +14,4 @@
 //= require_tree ./controllers
 
 $(function(){ $(document).foundation(); });
+ 
