@@ -1,27 +1,41 @@
 app.factory("Tutorial", [
   function() {
-    var svg;
-    function init(svgId) {
+    function Tutorial(svgId) {
+      var svg;
+      
       var svgTest = $("#"+svgId);
 
       if (svgTest.prop('tagName') === 'svg') {
         svg = svgTest;
       } else {
-        console.log("What is this?");
+        throw new Error("Only id's pointing to a svg are compatible.");
       }
-      console.log(this);
+
+      var jaw = svg.find('#jaw');
+      var jawL = svg.find('#jaw_lights');
+      var leftN = svg.find('#nut_left');
+      var rightN = svg.find('#nut_right');
+      var eyes = svg.find('#eyes');
+      var eyeL = svg.find('#eye_glow');
+
+      var tl = new TimelineLite();
+      console.log(tl)
+
     };
 
-    function playTutorial() {
+    Tutorial.prototype.playTutorial = function() {
+    };
+
+    Tutorial.prototype.playScene = function(scene) {
 
     };
 
-    function pauseTutorial() {
+    Tutorial.prototype.stopTutorial = function() {
 
     };
 
-    return {
-      init: init
-    }
+
+
+    return Tutorial;
   }]
-)
+);

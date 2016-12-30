@@ -6,7 +6,7 @@ app.controller('HomeCtrl', [
     var ctrl = this;
     var bodyHtml = $('body');
     var formPos, sampPos;
-    console.log(Scroller);
+
     ctrl.$onInit = function() {
       // disable scroll
       bodyHtml.on('scroll touchmove mousewheel', function(e) {

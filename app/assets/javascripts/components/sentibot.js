@@ -1,8 +1,9 @@
 function SentibotCtrl($scope, $element, $attrs, Tutorial) {
   var ctrl = this;
 
-  Tutorial.init("svg3384");
-
+  var tutorial = new Tutorial("svg3384");
+  console.log(tutorial);
+  tutorial.playTutorial();
 };
 
 app.component('sentibot', {
