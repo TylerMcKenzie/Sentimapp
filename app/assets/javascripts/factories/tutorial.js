@@ -25,26 +25,40 @@ app.factory("Tutorial", [
       // Main timeline
       tutAnimation = new TimelineLite({paused:true});
       
+      // animations
+      function jawBob() {
+        var jawBob = new TimelineLite();
+        
+        jawBob.to(fullJaw, 0.1875, {y: 10})
+              .to(fullJaw, 0.1875, {y: 0})
+              .to(fullJaw, 0.1875, {y: 10})
+              .to(fullJaw, 0.1875, {y: 0});
+
+        return jawBob;
+      };
+
+      function eyeFlicker() {
+        var eyeFlicker = new TimelineLite();
+
+        eyeFlicker.to(eyeL, 0.15, {opacity: 1})
+                  .to(eyeL, 0.15, {opacity: 0})
+                  .to(eyeL, 0.15, {opacity: 1})
+                  .to(eyeL, 0.15, {opacity: 0});
+        
+        return eyeFlicker;
+      };
+
       // scenes
-      var jawBob = new TimelineLite();
-      
-      jawBob.to(fullJaw, 0.1875, {y: 10})
-            .to(fullJaw, 0.1875, {y: 0})
-            .to(fullJaw, 0.1875, {y: 10})
-            .to(fullJaw, 0.1875, {y: 0});
+      function scene1() {
 
-      var eyeFlicker = new TimelineLite();
-
-      eyeFlicker.to(eyeL, 0.1, {opacity: 0})
-                .to(eyeL, 0.1, {opacity: 1});
+      };
 
       // Add scenes to timeline (--rough first then seek in app--)
-      tutAnimation.add("jawBob1");
-      tutAnimation.add(jawBob, 'jawBob1');
-      tutAnimation.add("eyeFlicker");
-      tutAnimation.add(eyeFlicker, "eyeFlicker");
-      tutAnimation.add("jawBob2");
-      tutAnimation.add(jawBob, "jawBob2");
+      tutAnimation.add(jawBob(), 'jawBob1');
+      tutAnimation.add("eyeFlicker", "-=0.75");
+      tutAnimation.add(eyeFlicker(), "eyeFlicker");
+      tutAnimation.add("jawBob2", "-=1.5");
+      tutAnimation.add(jawBob(), "jawBob2");
 
     };
 

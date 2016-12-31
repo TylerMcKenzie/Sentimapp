@@ -57,6 +57,12 @@ svg {
   height: auto;
 }
 
+.sentibot {
+  #eye_glow {
+    opacity: 0;
+  }
+}
+
 .sample-cont {
   @include flex;
   align-items: center;
