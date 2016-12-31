@@ -1,5 +1,8 @@
 app.factory("Tutorial", [
   function() {
+    // set tutorial global
+    var tutAnimation;
+
     function Tutorial(svgId) {
       var svg;
       
@@ -10,7 +13,8 @@ app.factory("Tutorial", [
       } else {
         throw new Error("Only id's pointing to a svg are compatible.");
       }
-
+      
+      var fullJaw = svg.find('#full_jaw');
       var jaw = svg.find('#jaw');
       var jawL = svg.find('#jaw_lights');
       var leftN = svg.find('#nut_left');
@@ -18,20 +22,34 @@ app.factory("Tutorial", [
       var eyes = svg.find('#eyes');
       var eyeL = svg.find('#eye_glow');
 
-      this.t2 = new TimelineLite();
-      this.tl = new TimelineLite();
+      // Main timeline
+      tutAnimation = new TimelineLite({paused:true});
       
-      this.t2.fromTo(jaw, 1, {y: 90}, {y: 60});
+      // scenes
+      var jawBob = new TimelineLite();
+      
+      jawBob.to(fullJaw, 0.1875, {y: 10})
+            .to(fullJaw, 0.1875, {y: 0})
+            .to(fullJaw, 0.1875, {y: 10})
+            .to(fullJaw, 0.1875, {y: 0});
 
-      this.tl.fromTo(jaw, 1, {y: 60}, {y: 90});
-      this.tl.add("scene2");
-      this.tl.add(this.t2, 'scene2');
-      this.tl.progress(1);
+      var eyeFlicker = new TimelineLite();
+
+      eyeFlicker.to(eyeL, 0.1, {opacity: 0})
+                .to(eyeL, 0.1, {opacity: 1});
+
+      // Add scenes to timeline (--rough first then seek in app--)
+      tutAnimation.add("jawBob1");
+      tutAnimation.add(jawBob, 'jawBob1');
+      tutAnimation.add("eyeFlicker");
+      tutAnimation.add(eyeFlicker, "eyeFlicker");
+      tutAnimation.add("jawBob2");
+      tutAnimation.add(jawBob, "jawBob2");
 
     };
 
     Tutorial.prototype.playTutorial = function() {
-      this.tl.play(0);
+      tutAnimation.play(0);
     };
 
     Tutorial.prototype.playScene = function(scene) {
