@@ -1,7 +1,7 @@
 function SampleCtrl($scope, $sanitize, $element, $attrs, highlighter, Scroller) {
   var ctrl = this;
   ctrl.$onInit = function() {
-    var sampleCont = $(".sample-cont");
+    var sampleCont = $element;
     var sampleTop = sampleCont.offset().top;
     sampleCont.css({height: $(window).height()});
 

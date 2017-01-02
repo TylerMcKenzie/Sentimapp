@@ -58,6 +58,13 @@ svg {
 }
 
 .sentibot {
+
+  .prompter {
+    display: none;
+    position: absolute;
+    width: 40%;
+  }
+
   #eye_glow {
     opacity: 0;
   }

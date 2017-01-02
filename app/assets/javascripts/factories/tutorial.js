@@ -3,24 +3,37 @@ app.factory("Tutorial", [
     // set tutorial global
     var tutAnimation;
 
-    function Tutorial(svgId) {
-      var svg;
-      
-      var svgTest = $("#"+svgId);
+    function Tutorial(element) {
+      var sentibot = element;
 
-      if (svgTest.prop('tagName') === 'svg') {
-        svg = svgTest;
-      } else {
-        throw new Error("Only id's pointing to a svg are compatible.");
-      }
+      // elements
+      var fullJaw = sentibot.find('#full_jaw');
+      var jaw = sentibot.find('#jaw');
+      var jawL = sentibot.find('#jaw_lights');
+      var leftN = sentibot.find('#nut_left');
+      var rightN = sentibot.find('#nut_right');
+      var eyes = sentibot.find('#eyes');
+      var eyeL = sentibot.find('#eye_glow');
+      var prompter = sentibot.find('.prompter');
+      var prompterP = prompter.find('p');
       
-      var fullJaw = svg.find('#full_jaw');
-      var jaw = svg.find('#jaw');
-      var jawL = svg.find('#jaw_lights');
-      var leftN = svg.find('#nut_left');
-      var rightN = svg.find('#nut_right');
-      var eyes = svg.find('#eyes');
-      var eyeL = svg.find('#eye_glow');
+      // postitioning vars
+      var $window = $(window);
+
+      // provide way to set prompt text
+      function setPrompter(sceneNumber, locationX, locationY) {
+        // script for tutorial
+        var script = [
+                      'Welcome to Sentimapp, the sentiment analysis application.',
+                      'I am Sentibot, I\'ll be your guide for this app.',
+                      'Let\'s take a look at our controls.'];
+
+        prompter.css({left: locationX+'px', marginTop: locationY+'px'});
+        prompterP.text(script[sceneNumber]);
+
+      };
+
+      setPrompter(0, 0, 0);
 
       // Main timeline
       tutAnimation = new TimelineLite({paused:true});
@@ -53,12 +66,9 @@ app.factory("Tutorial", [
 
       };
 
+
       // Add scenes to timeline (--rough first then seek in app--)
-      tutAnimation.add(jawBob(), 'jawBob1');
-      tutAnimation.add("eyeFlicker", "-=0.75");
-      tutAnimation.add(eyeFlicker(), "eyeFlicker");
-      tutAnimation.add("jawBob2", "-=1.5");
-      tutAnimation.add(jawBob(), "jawBob2");
+      
 
     };
 
