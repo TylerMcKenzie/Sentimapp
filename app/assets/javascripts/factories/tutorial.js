@@ -21,20 +21,39 @@ app.factory("Tutorial", [
       var $window = $(window);
 
       // provide way to set prompt text
-      function setPrompter(sceneNumber, locationX, locationY) {
+      function setPrompter(sceneNumber, locationX, locationY, display) {
         // script for tutorial
         var script = [
                       'Welcome to Sentimapp, the sentiment analysis application.',
                       'I am Sentibot, I\'ll be your guide for this app.',
-                      'Let\'s take a look at our controls.'];
+                      'Let\'s take a look at our controls.'
+                    ];
 
+        // set prompter location
         prompter.css({left: locationX+'px', marginTop: locationY+'px'});
+        
+        // set prompter text
         prompterP.text(script[sceneNumber]);
+
+        // show/hide the prompter
+        if(display === 'show') {
+          showPrompter();
+        } else if(display === 'hide') {
+          hidePrompter();
+        }
 
       };
 
-      setPrompter(0, 0, 0);
+      function showPrompter() {
+        prompter.show();
+      };
 
+      function hidePrompter() {
+        prompter.hide();
+      };
+
+      setPrompter(0, ($window.width()/1.5), 50, 'show');
+      
       // Main timeline
       tutAnimation = new TimelineLite({paused:true});
       

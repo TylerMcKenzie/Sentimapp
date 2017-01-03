@@ -62,7 +62,26 @@ svg {
   .prompter {
     display: none;
     position: absolute;
-    width: 40%;
+    height: auto;
+    max-width: 450px;
+    border: 2px solid grey;
+    background-color: white;
+    padding: 10px;
+    
+    &::after {
+      content: '';
+      position: relative;
+      left: -12px;
+      bottom: -56px;
+      border-top: 25px solid grey;
+      border-right: 20px solid transparent;
+      border-left: 0px solid transparent;
+      border-bottom: 0px solid transparent;
+    }
+    
+    p {
+
+    }
   }
 
   #eye_glow {
