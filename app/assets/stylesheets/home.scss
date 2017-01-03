@@ -68,7 +68,18 @@ svg {
     background-color: white;
     padding: 10px;
     
-    &::after {
+    &.top::after {
+      content: '';
+      position: relative;
+      left: -12px;
+      bottom: -56px;
+      border-top: 25px solid grey;
+      border-right: 20px solid transparent;
+      border-left: 0px solid transparent;
+      border-bottom: 0px solid transparent;
+    }
+
+    &.bottom::after {
       content: '';
       position: relative;
       left: -12px;
