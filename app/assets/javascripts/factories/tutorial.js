@@ -24,19 +24,32 @@ app.factory("Tutorial", [
       var CPlocation = sentibot.offset().top+sentibot.height();
 
       // provide way to set prompt text
-      function setPrompter(sceneNumber, locationX, locationY, display) {
+      function setPrompter(sceneNumber, locationX, locationY, display, bubbleDir) {
         // script for tutorial
         var script = [
                       'Welcome to Sentimapp, the sentiment analysis application.',
                       'I am Sentibot, I\'ll be your guide for this experience.',
-                      'Let\'s take a look at our controls.'
+                      'Let\'s take a look at how it works.',
+                      'If you are logged in, you can name your samples here.',
+                      'Here is where you provide your text to be analyzed.',
+                      'Later there will be more methods to test text, but for now copy/paste will do.',
+                      'Finally, hit this button to generate your sample',
+                      'Let\'s give it a shot!'
                     ];
 
         // set prompter location
-        prompter.css({left: locationX+'px', marginTop: locationY+'px'});
+        prompter.css({left: locationX+'px', top: locationY+'px'});
         
         // set prompter text
         prompterP.text(script[sceneNumber]);
+
+        if(bubbleDir === 'top') {
+          prompter.removeClass('bottom');
+          prompter.addClass('top');
+        } else if(bubbleDir === 'bottom') {
+          prompter.removeClass('top');
+          prompter.addClass('bottom');
+        }
 
         // show/hide the prompter
         if(display === 'show') {
@@ -55,14 +68,18 @@ app.factory("Tutorial", [
         prompter.hide();
       };
 
+      function focusOn(currSelect, prevSelect) {
+        // turn on
+        $(currSelect).addClass('focus');
+        // turn off
+        $(prevSelect).removeClass('focus');
+      };
+
       // function to move body to control panel
       function scroll(location, duration) {
         Scroller.scrollTo(location, duration);
       };
 
-      // Main timeline
-      tutAnimation = new TimelineLite({paused:true});
-      // tutAnimation = new TimelineLite();
       
       // animations
     
@@ -96,35 +113,66 @@ app.factory("Tutorial", [
         // set timeline
         var tl = new TimelineLite();
 
-        tl.call(setPrompter, [0, $window.width()/1.5, 75, 'show']);
+        tl.call(setPrompter, [0, $window.width()/1.5, 75, 'show', 'top']);
         tl.add('talk');
         tl.add(jawBob, 'talk');
         tl.add('flicker');
         tl.add(eyeFlicker, 'flicker');
-        tl.add('talk2', "+=2");
+        tl.add('talk2', "+=3");
         tl.add(jawBob, 'talk2');
         tl.add('flicker2');
         tl.add(eyeFlicker, 'flicker2');
-        tl.call(setPrompter, [1, $window.width()/1.5, 75, 'show'], this, 'talk2');
-        tl.add('talk3', "+=2");
+        tl.call(setPrompter, [1, $window.width()/1.5, 75, 'show', 'top'], this, 'talk2');
+        tl.add('talk3', "+=3");
         tl.add(jawBob, 'talk3');
         tl.add('flicker3');
         tl.add(eyeFlicker, 'flicker3');
-        tl.call(setPrompter, [2, $window.width()/1.5, 75, 'show'], this, 'talk3');
-        tl.add('removePromp', '+=1');
+        tl.call(setPrompter, [2, $window.width()/1.5, 75, 'show', 'top'], this, 'talk3');
+        tl.add('removePromp', '+=3');
         tl.call(setPrompter, [0, $window.width()/1.5, 75, 'hide'], this, 'removePromp');
-        tl.add('goto');
-        tl.call(scroll, [CPlocation, 1500], this, 'goto');
+        tl.add('finishWelcome');
+        tl.call(scroll, [CPlocation, 1500], this, 'finishWelcome');
 
         return tl;
+
+        // 5 seconds
       };
 
+      function controlsInfo() {
+        // set timeline
+        var tl = new TimelineLite();
+
+        tl.add('focusName');
+        tl.call(focusOn, ['.form-name', ''], this, 'focusName');
+        tl.add('talk');
+        tl.call(setPrompter, [3, $window.width()/1.5, CPlocation+75, 'show', 'bottom']);
+        tl.add('focusText', '+=3');
+        tl.call(focusOn, ['.form-text', '.form-name'], this, 'focusText');
+        tl.call(setPrompter, [4, $window.width()/1.25, CPlocation+175, '', 'bottom'], this, 'focusText');
+        tl.add('talk2', '+=3');
+        tl.call(setPrompter, [5, $window.width()/1.25, CPlocation+175, '', 'bottom'], this, 'talk2');
+        tl.add('focusButton', '+=3');
+        tl.call(focusOn, ['.form-button', '.form-text'], this, 'focusButton');
+        tl.call(setPrompter, [6, $window.width()/1.25, CPlocation+175, '', 'bottom'], this, 'focusButton');
+        tl.add('talk3', '+=3');
+        tl.call(setPrompter, [7, $window.width()/1.25, CPlocation+175, '', 'bottom'], this, 'talk3');
+        tl.add('finishControlsInfo', '+=2');
+        tl.call(focusOn, ['', '.form-button'], this, 'finishControlsInfo');
+        tl.call(setPrompter, [0, 0, 0, 'hide', 'bottom'], this, 'finishControlsInfo');
 
 
-      // Add scenes to timeline (--rough first then seek in app--)
+        return tl;        
+      }
+
+      // Main timeline
+      tutAnimation = new TimelineLite({paused:true});
+
+      // Add scenes to timeline
       
       tutAnimation.add('welcome')
       tutAnimation.add(welcome, 'welcome');
+      tutAnimation.add('controls', '+=10.75');
+      tutAnimation.add(controlsInfo, 'controls');
 
     };
 

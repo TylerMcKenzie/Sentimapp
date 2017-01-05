@@ -8,6 +8,8 @@ function SentibotCtrl($scope, $element, $attrs, Tutorial) {
   $('body').on('keypress', function(e) {
     if (e.key === 'p') {
       tutorial.playTutorial();
+    } else if(e.key === 's') {
+      tutorial.playScene('controls');;
     }
   });
 };
