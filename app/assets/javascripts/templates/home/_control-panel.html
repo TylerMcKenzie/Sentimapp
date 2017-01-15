@@ -1,13 +1,13 @@
 <div class="control-panel" js-data="formPanel">
   <div class="form-cont">
     <form class="form small-8" ng-submit="$ctrl.submit(form)">
-      <input type="text" ng-model="form.name"/>
-      <textarea type="textarea" ng-model="form.text"></textarea>
-      <input type="submit" value="CALL"/>
+      <input class="form-name" type="text" placeholder="Name" ng-model="form.name"/>
+      <textarea class="form-text" type="textarea" placeholder="Text Body" ng-model="form.text"></textarea>
+      <input class="form-button" type="submit" value="Analyze"/>
     </form>
   </div>
 </div>
 
-<div js-data='sample-cont'>
+<div js-data='sampleCont'>
   <sample class="sample-cont" sample="$ctrl.sample" animate="$ctrl.runAnim"></sample>
 </div>

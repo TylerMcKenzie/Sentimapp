@@ -11,10 +11,10 @@ function ControlPanelCtrl($scope, $element, $attrs, ApiCoordinator) {
   };
 
   ctrl.submit = function(form) {
-    // ApiCoordinator.call(form).then(function(sample){
-    //   ctrl.setSample(sample);
-    // });
-    ctrl.sample = {content: "This is a good post", keywords : [{text: 'good post'}]};
+    ApiCoordinator.call(form).then(function(sample){
+      ctrl.setSample(sample);
+    });
+    // ctrl.sample = {content: "This is a good post", keywords : [{text: 'good post'}]};
     ctrl.runAnim.showSample();
   };
 };

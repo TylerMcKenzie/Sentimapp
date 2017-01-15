@@ -7,10 +7,20 @@ app.factory('highlighter', [
 
       for(var i=0; i<keys.length;i++) {
         var key = new RegExp(keys[i]['text'], 'g');
-        highlightedText = textToHighlight.replace(key, "<em>$&</em>");
+        sentimentColor(keys);
+        highlightedText = textToHighlight.replace(key, "<span>$&</span>");
         textToHighlight = highlightedText;
       }
+
       return highlightedText;
+    };
+    
+    function sentimentColor(key) {
+      console.log(key);
+    };
+
+    function genderColor(key) {
+
     };
 
     return {

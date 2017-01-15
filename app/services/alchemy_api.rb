@@ -41,7 +41,7 @@ class AlchemyApi
   def call_api
     @response = HTTParty.post("http://access.alchemyapi.com/calls/text/TextGetRankedKeywords",
       :query => {
-               :apikey => ENV['ALCHEMY_SECRET'],
+               :apikey => 'ENV['ALCHEMY_SECRET']',
                :text => @content,
                :showSourceText => 1,
                :outputMode => 'json',

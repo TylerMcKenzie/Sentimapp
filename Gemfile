@@ -35,9 +35,6 @@ gem 'rack-cors'
 # Handle file drag and drop and such
 gem 'dropzonejs-rails'
 
-# Using Greensock cuz I'm a little baby.
-gem 'greensock-rails'
-
 # Use twitter api -- not sure if going to use but its there right?
 gem 'twitter'
 
