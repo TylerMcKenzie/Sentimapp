@@ -1,24 +1,15 @@
-# README
+# Sentimapp
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Introduction
 
-Things you may want to cover:
+> Sentimapp is a recapitulation of my final project at Dev Bootcamp. One of the main comments that I have had for this project is that we needed to make the UI make more sense by using a front-end framework. This app does just that using AngularJs(1.5). 
 
-* Ruby version
 
-* System dependencies
 
-* Configuration
+## Installation
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+> To install make sure you have a Rails v4^ environment.
+>- clone the repo - `git clone git@github.com:TylerMcKenzie/Sentimapp.git`  
+>- run `bundle install`
+>- run `rake bower:install`
+>- start the server `rails server` -runs on `localhost:3000`
